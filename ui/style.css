@@ -25,7 +25,7 @@ html{
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-     text-align: center;
+    text-align: center;
 }
 
 ol,li,ul{
@@ -35,6 +35,10 @@ ol,li,ul{
 
 h4{
     font-weight: bold;
+}
+table{
+text-align: center;
+    
 }
 
 
