@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles={
-    var articleOne:{
+    articleOne:{
       title: 'Raees | Kuharan Bhowmik',
       heading: 'Raees (film)',
       date: 'Feb 18,2017',
@@ -29,7 +29,7 @@ var articles={
             </p>`
     },
      
-    var articleTwo:{
+    articleTwo:{
     title:'Dangal | Kuharan Bhowmik',
     heading:'Dangal (film)',
     date:'Feb 18,2017',
@@ -46,7 +46,7 @@ var articles={
         </p>`
     },
     
-    var articleThree:{
+    articleThree:{
       title:'Sultan | Kuharan Bhowmik',
       heading:'Sultan (film)',
       date:'Feb 18,2017',
