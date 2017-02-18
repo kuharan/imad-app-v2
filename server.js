@@ -29,7 +29,7 @@ var articles = {
             </p>`
     },
      
-    articleTwo:{
+    articleTwo : {
     title:'Dangal | Kuharan Bhowmik',
     heading:'Dangal (film)',
     date:'Feb 18,2017',
@@ -46,7 +46,7 @@ var articles = {
         </p>`
     },
     
-    articleThree:{
+    articleThree : {
       title:'Sultan | Kuharan Bhowmik',
       heading:'Sultan (film)',
       date:'Feb 18,2017',
