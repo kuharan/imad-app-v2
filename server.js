@@ -30,7 +30,12 @@ var articleone={
 };
 
 function createTemplate(data){
-    var hmltemplate=`
+    var title=data.title;
+    var date=data.date;
+    var heading=data.heading;
+    var content=data.content;
+    
+    var htmltemplate=`
     <html>
         <head>
             <title> ${title} </title>
