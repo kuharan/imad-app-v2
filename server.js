@@ -7,9 +7,9 @@ app.use(morgan('combined'));
 
 var articles={
     var articleOne:{
-      title:'Raees | Kuharan Bhowmik',
-      heading:'Raees (film)',
-      date:'Feb 18,2017',
+      title: 'Raees | Kuharan Bhowmik',
+      heading: 'Raees (film)',
+      date: 'Feb 18,2017',
       content:`
             <p>
                Raees is a 2017 Indian action crime thriller film directed by Rahul Dholakia and produced by Gauri Khan,
@@ -28,22 +28,22 @@ var articles={
                 He decides to part ways with Jairaj and start operating on his own. He meets Musabhai and Nawab in Mumbai, and with their help he starts his bootlegging business. Meanwhile, an honest police offer of the IPS cadre, J. A. Majmudar, wants to end this illegal liquor trade.
             </p>`
     },
-    
+     
     var articleTwo:{
-      title:'Dangal | Kuharan Bhowmik',
-      heading:'Dangal (film)',
-      date:'Feb 18,2017',
-      content:`
-            <p>
-               Dangal (English: Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama
-               film directed by Nitesh Tiwari. It stars Aamir Khan as Mahavir Singh Phogat, who taught wrestling
-               to his daughters Geeta Phogat and Babita Kumari.
-              </p>
-              <p>
-                The former is India's first female wrestler to win
-               at the 2010 Commonwealth Games, where she won the gold medal (55 kg). Her sister Babita Kumari won
-               the silver (51 kg). "Dangal" is the Hindi term for "a wrestling competition".
-              </p>`
+    title:'Dangal | Kuharan Bhowmik',
+    heading:'Dangal (film)',
+    date:'Feb 18,2017',
+    content:`
+        <p>
+           Dangal (English: Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama
+           film directed by Nitesh Tiwari. It stars Aamir Khan as Mahavir Singh Phogat, who taught wrestling
+           to his daughters Geeta Phogat and Babita Kumari.
+        </p>
+        <p>
+           The former is India's first female wrestler to win
+           at the 2010 Commonwealth Games, where she won the gold medal (55 kg). Her sister Babita Kumari won
+           the silver (51 kg). "Dangal" is the Hindi term for "a wrestling competition".
+        </p>`
     },
     
     var articleThree:{
@@ -55,13 +55,15 @@ var articles={
                Sultan is a 2016 Indian romantic sports-drama film directed by Ali Abbas Zafar.
                Produced by Aditya Chopra under the Yash Raj Films banner, the film stars Salman
                Khan as the title character opposite Anushka Sharma. 
-              </p>
-              <p>
+            </p>
+            <p>
                The film focuses on Sultan Ali Khan,
                a fictional wrestling champion from Haryana whose successful career creates a rift in his personal life.
-              </p>`
+            </p>`
     }
-};
+
+    
+ };
 
 function createTemplate(data){
     var title=data.title;
