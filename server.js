@@ -6,11 +6,11 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
-    'articleOne' : {
-      title: 'Raees | Kuharan Bhowmik',
-      heading: 'Raees (film)',
-      date: 'Feb 18,2017',
-      content:
+    articleOne : {
+    title: 'Raees | Kuharan Bhowmik',
+    heading: 'Raees (film)',
+    date: 'Feb 18,2017',
+    content:
             `<p>
                Raees is a 2017 Indian action crime thriller film directed by Rahul Dholakia and produced by Gauri Khan,
                 Ritesh Sidhwani and Farhan Akhtar under their banners Red Chillies Entertainment and Excel Entertainment.
