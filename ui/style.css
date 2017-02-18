@@ -1,3 +1,10 @@
+body{
+    font-family: sans-serif;
+    margin-top: 60px;
+}
+
+
+
 .container{
         max-width: 800px;
         margin: 0 auto;
