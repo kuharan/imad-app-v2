@@ -32,7 +32,7 @@ var articles = {
     articleTwo : {
         title:'Dangal | Kuharan Bhowmik',
         heading:'Dangal (film)',
-        date:'Feb 18,2017',
+        date:'Feb 19,2017',
         content:`
             <p>
                Dangal (English: Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama
@@ -49,7 +49,7 @@ var articles = {
     articleThree : {
         title:'Sultan | Kuharan Bhowmik',
         heading:'Sultan (film)',
-        date:'Feb 18,2017',
+        date:'Feb 20,2017',
         content:`
             <p>
                Sultan is a 2016 Indian romantic sports-drama film directed by Ali Abbas Zafar.
