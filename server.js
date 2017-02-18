@@ -104,17 +104,17 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:articleName',function(req,res){
-    res.send(createTemplate(articles.articleOne));
+    res.send(createTemplate(articleOne));
 
 });
 
 app.get('/:articleName',function(req,res){
-    res.send(createTemplate(articles.articleTwo));
+    res.send(createTemplate(articleTwo));
 
 });
 
 app.get('/:articleName',function(req,res){
-    res.send(createTemplate(articles.articleThree));
+    res.send(createTemplate(articleThree));
 
 });
 
