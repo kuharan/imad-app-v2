@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
-    articleone : {
+    articleOne : {
     title: 'Raees | Kuharan Bhowmik',
     heading: 'Raees (film)',
     date: 'Feb 18,2017',
@@ -104,17 +104,17 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one',function(req,res){
-    res.send(createTemplate(articles.articleone));
+    res.send(createTemplate(articles.articleOne));
 
 });
 
 app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+    res.send(createTemplate(articles.articleTwo));
 
 });
 
 app.get('/article-three',function(req,res){
-     res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+    res.send(createTemplate(articles.articleThree));
 
 });
 
