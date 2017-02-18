@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var content={
+var articleone={
   title:'Raees | Kuharan Bhowmik',
   heading:'Raees (film)',
   date:'Feb 18,2017',
