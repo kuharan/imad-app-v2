@@ -29,6 +29,34 @@ var articleone={
         </p>`
 };
 
+function createTemplate(data){
+    var hmltemplate=`
+    <html>
+        <head>
+            <title> ${title} </title>
+            <meta name="viewport" content="width=device-width,initial-scale=1" />
+            <link href="ui/style.css" rel="stylesheet" />
+        </head>
+        <body>
+            <div><a href="/">Home</a><br>
+            </div>
+            <div>${date}</div>
+            <div><p>Copyright wikipedia</p></div>
+            <hr/>
+            <h3> ${heading}</h3>
+            <hr/>
+            <div class="container">
+                <div>
+                  ${content}
+                </div>
+            </div>
+        </body>
+    </html>
+    `;
+}
+
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
