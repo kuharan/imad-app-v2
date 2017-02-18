@@ -104,7 +104,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one',function(req,res){
-    res.send(createTemplate(articleone));
+    res.send(createTemplate(articles.articleone));
 
 });
 
