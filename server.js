@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleone={
+var articleOne={
   title:'Raees | Kuharan Bhowmik',
   heading:'Raees (film)',
   date:'Feb 18,2017',
@@ -58,6 +58,7 @@ function createTemplate(data){
         </body>
     </html>
     `;
+    return htmlTemplate;
 }
 
 
@@ -67,7 +68,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+    res.send(createTemplate));
 
 });
 
