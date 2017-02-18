@@ -30,27 +30,27 @@ var articles = {
     },
      
     articleTwo : {
-    title:'Dangal | Kuharan Bhowmik',
-    heading:'Dangal (film)',
-    date:'Feb 18,2017',
-    content:`
-        <p>
-           Dangal (English: Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama
-           film directed by Nitesh Tiwari. It stars Aamir Khan as Mahavir Singh Phogat, who taught wrestling
-           to his daughters Geeta Phogat and Babita Kumari.
-        </p>
-        <p>
-           The former is India's first female wrestler to win
-           at the 2010 Commonwealth Games, where she won the gold medal (55 kg). Her sister Babita Kumari won
-           the silver (51 kg). "Dangal" is the Hindi term for "a wrestling competition".
-        </p>`
+        title:'Dangal | Kuharan Bhowmik',
+        heading:'Dangal (film)',
+        date:'Feb 18,2017',
+        content:`
+            <p>
+               Dangal (English: Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama
+               film directed by Nitesh Tiwari. It stars Aamir Khan as Mahavir Singh Phogat, who taught wrestling
+               to his daughters Geeta Phogat and Babita Kumari.
+            </p>
+            <p>
+               The former is India's first female wrestler to win
+               at the 2010 Commonwealth Games, where she won the gold medal (55 kg). Her sister Babita Kumari won
+               the silver (51 kg). "Dangal" is the Hindi term for "a wrestling competition".
+            </p>`
     },
     
     articleThree : {
-      title:'Sultan | Kuharan Bhowmik',
-      heading:'Sultan (film)',
-      date:'Feb 18,2017',
-      content:`
+        title:'Sultan | Kuharan Bhowmik',
+        heading:'Sultan (film)',
+        date:'Feb 18,2017',
+        content:`
             <p>
                Sultan is a 2016 Indian romantic sports-drama film directed by Ali Abbas Zafar.
                Produced by Aditya Chopra under the Yash Raj Films banner, the film stars Salman
