@@ -39,11 +39,12 @@ body{
 
 .principal
 {
-  width: 170px;
-  height: 170px;
-  background-color:#DD4545;
-  border-radius: 170px;
-  padding: 30px;
+    width: 170px;
+    height: 170px;
+    background-color: #349ccc;
+    border-radius: 120px;
+    padding: 30px;
+    float: right;
 }
 .principal_petit
 {
