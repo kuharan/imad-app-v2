@@ -12,14 +12,12 @@ body{
 }
 
 .container{
-        max-width: 800px;
         margin: 0 auto;
         color: #1f595a;
         font-family: sans-serif;
         padding-left: 20;
         padding-right: 20;
         padding-top: 30;
-        float: left;
         color: #356b99;
 }
 
@@ -29,6 +27,7 @@ body{
         padding-left: 20;
         padding-right: 20;
         padding-top: 0;
+        float: left;
 }
 
 
