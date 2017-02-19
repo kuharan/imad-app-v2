@@ -1,5 +1,2 @@
 console.log('Loaded!');
-window.addEventListener('error', function(e) {
-    console.log(e);
-    
-}, true);
+var elem=document.getElelemtById('dp')
