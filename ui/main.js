@@ -1,6 +1,6 @@
 console.log('Loaded!');
 var img=document.getElementById('dp');
-function moveLeft (){
+function moveLeft(){
     marginLeft=marginLeft-10;
     img.style.marginLeft=marginLeft - '5px';
 }
