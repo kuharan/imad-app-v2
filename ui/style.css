@@ -34,7 +34,8 @@ body{
 }
 
 .fond{position:absolute;padding-top:85px;top:0;left:0; right:0;bottom:0;
-  background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/173024/fond.jpg);background-size:cover;}
+  /*background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/173024/fond.jpg);background-size:cover;*/
+  }
 
 .principal
 {
