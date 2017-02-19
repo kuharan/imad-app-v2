@@ -58,7 +58,7 @@ body{
   -o-transition:all 0.2s ease-in;
   transition:all 0.2s ease-in;
 }
-.principal_petit
+.principal_petit:hover
 {
   -webkit-transform: scale(1.1);
   -webkit-transition:all 0.2s ease-in;
@@ -79,7 +79,7 @@ body{
   -o-transition:all 0.2s ease-in;
   transition:all 0.2s ease-in;
 }
-.principal_img
+.principal_img:hover
 {
   -webkit-transform: scale(0.7);
   -webkit-transition:all 0.2s ease-in;
