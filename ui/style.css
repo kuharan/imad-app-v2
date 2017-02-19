@@ -30,7 +30,7 @@ body{
 }
 
 
-.principal{
+.p{
     width: 170px;
     height: 170px;
     background-color: #349ccc;
@@ -39,7 +39,7 @@ body{
     float: right;
 }
 
-.principal_petit{
+.p_petit{
   width: 170px;
   height: 170px;
   background-color: #ffffff;
@@ -51,7 +51,7 @@ body{
   transition:all 0.2s ease-in;
 }
 
-.principal_petit:hover{
+.p_petit:hover{
   -webkit-transform: scale(1.1);
   -webkit-transition:all 0.2s ease-in;
   -moz-transform: scale(1.1);
@@ -64,7 +64,7 @@ body{
   transition:all 0.2s ease-in;
 }
 
-.principal_img{
+.p_img{
   -webkit-transition:all 0.2s ease-in;
   -moz-transition:all 0.2s ease-in;
   -ms-transition:all 0.2s ease-in;
@@ -72,7 +72,7 @@ body{
   transition:all 0.2s ease-in;
 }
 
-.principal_img:hover{
+.p_img:hover{
   -webkit-transform: scale(0.7);
   -webkit-transition:all 0.2s ease-in;
   -moz-transform: scale(0.7);
