@@ -1,2 +1,2 @@
 console.log('Loaded!');
-var elem=document.getElelemtById('dp')
+var elem=document.getElementById('dp')
