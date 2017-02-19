@@ -11,8 +11,6 @@ body{
     font-weight:bold;
 }
 
-
-
 .container{
         max-width: 800px;
         margin: 0 auto;
@@ -43,6 +41,7 @@ body{
     padding: 30px;
     float: right;
 }
+
 .principal_petit
 {
   width: 170px;
@@ -55,6 +54,7 @@ body{
   -o-transition:all 0.2s ease-in;
   transition:all 0.2s ease-in;
 }
+
 .principal_petit:hover
 {
   -webkit-transform: scale(1.1);
@@ -68,6 +68,7 @@ body{
   transform: scale(1.1);
   transition:all 0.2s ease-in;
 }
+
 .principal_img
 {
   -webkit-transition:all 0.2s ease-in;
@@ -76,6 +77,7 @@ body{
   -o-transition:all 0.2s ease-in;
   transition:all 0.2s ease-in;
 }
+
 .principal_img:hover
 {
   -webkit-transform: scale(0.7);
