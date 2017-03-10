@@ -122,7 +122,7 @@ var pool = new Pool(config);
 
 app.get('/test-db',function (req,res) {
    
-Pool.query('select * FROM tag',function(err,result){
+pool.query('select * FROM tag',function(err,result){
         if (err){
             res.status(500).send(err.toString());
         }else{
