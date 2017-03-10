@@ -6,7 +6,7 @@ app.use(morgan('combined'));
 var Pool = require('pg').Pool;
 
 var config = {
-  host: 'db.imad.hasura-app.io',
+  host: 'http://db.imad.hasura-app.io',
   user: 'kuharan',
   password: 'db-kuharan-56760',
   database: 'kuharan',
