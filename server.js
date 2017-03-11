@@ -15,7 +15,7 @@ var config = {
 
 
 
-//var articles = {
+/*var articles = {
     'article-one' : {
     title: 'Raees | Kuharan Bhowmik',
     heading: 'Raees (film)',
@@ -73,7 +73,7 @@ var config = {
     }
 
     
- };
+ };*/
 
 function createTemplate(data){
     var title=data.title;
