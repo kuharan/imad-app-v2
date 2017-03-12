@@ -159,8 +159,11 @@ app.post('/login', function(req, res) {
         }else{
             if(result.rows.length===0){
                 res.send(400).send('username/password invalid');
+            }else{
+                var dbString=result.rows[0];
+                res.send('User Successfully Created' + username);
             }
-            res.send('User Successfully Created' + username);
+            
         } 
     });
 });
