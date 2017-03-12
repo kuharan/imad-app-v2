@@ -26,11 +26,7 @@ submit.onclick = function () {
         console.log(username);
         console.log(password);
     }else{
-        console == {
-        log: function () {},
-        warn: function () {},
-        error: function () {}
-        }
+        //console == {log: function () {},warn: function () {},error: function () {}}
     }
     
     request.open('POST','http://kuharan.imad.hasura-app.io/login',true);
