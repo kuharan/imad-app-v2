@@ -113,11 +113,11 @@
       // Update particle positions
       for (var i = 0; i < particles.length; i++) {
         particles[i].updatePosition();
-      };
+      }
       // Draw particles
-      for (var i = 0; i < particles.length; i++) {
-        particles[i].draw();
-      };
+      for (var j = 0; j < particles.length; i++) {
+        particles[j].draw();
+      }
 
       // Call this function next time screen is redrawn
       if (!paused) {
