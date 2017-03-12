@@ -172,9 +172,11 @@ app.post('/login', function(req, res) {
                 var salt=dbString.split('$')[2];
                 var hashedPassword=hash(password,salt);
                 if (hashedPassword===dbString){
+                    //set a session
+                    req.session.auth = {userId:result.rows[0].id};
+                    
                     res.send('Credentials Correct');
                     
-                    //set a session
                     
                     
                     
@@ -187,6 +189,15 @@ app.post('/login', function(req, res) {
     });
 });
 
+
+app.get('/check-login',function(req,res){
+   if(req.session && req.session.auth && req.session.auth.userId){
+       res.send('you are logged id' + req.session.auth.userId.toString());
+   }else{
+       res.send('you are not logged id');
+   }
+
+});
 
 var pool = new Pool(config);
 
