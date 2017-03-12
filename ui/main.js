@@ -6,7 +6,7 @@ submit.onclick = function(){
         if(request.readyState === XMLHttpRequest.DONE){
             if (request.status === 200){
                 Console.log('User logged in');
-                
+                alert('Logged in Successfully');
             }
         }
       //not done yet
