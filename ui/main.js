@@ -1,11 +1,12 @@
 var submit = document.getElementById('submit_btn');
 
-submit.onclick = function(){
+submit.onclick = function () {
     //create request object
     var request = new XMLHttpRequest();
+    
     //capture the response and store it in avariable
-    request.onreadystatechange = function(){
-        if(request.readyState === XMLHttpRequest.DONE){
+    request.onreadystatechange = function () {
+        if(request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200){
                 Console.log('User logged in');
                 alert('Logged in Successfully');
