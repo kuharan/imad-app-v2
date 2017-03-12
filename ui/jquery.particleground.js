@@ -20,7 +20,7 @@
       }
     }
     return out;
-  };
+  }
 
   var $ = window.jQuery;
 
@@ -64,7 +64,7 @@
         var p = new Particle();
         p.setStackPos(i);
         particles.push(p);
-      };
+      }
 
       window.addEventListener('resize', function() {
         resizeHandler();
