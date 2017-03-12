@@ -160,11 +160,17 @@ app.post('/login', function(req, res) {
             if(result.rows.length===0){
                 res.send(403).send('username/password invalid');
             }else{
+                //match the password
                 var dbString=result.rows[0].password;
                 var salt=dbString.split('$')[2];
                 var hashedPassword=hash(password,salt);
                 if (hashedPassword===dbString){
                     res.send('Credentials Correct');
+                    
+                    //set a session
+                    
+                    
+                    
                 }else{
                      res.send(400).send('username/password invalid');
                 }
