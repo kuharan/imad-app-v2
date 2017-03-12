@@ -23,8 +23,8 @@ submit.onclick = function () {
     
     var username=document.getElementById('username').value;
     var password=document.getElementById('password').value;
-    Console.log(username);
-    Console.log(password);
+    //Console.log(username);
+    //Console.log(password);
     request.open('POST','http://kuharan.imad.hasura-app.io/login',true);
     request.setRequestHeader('Content-Type:','application/JSON');
     request.send(JSON.stringify({username: username, password:password}));
