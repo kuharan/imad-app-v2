@@ -24,7 +24,7 @@ submit.onclick = function(){
     var password=document.getElementById('password').value;
     Console.log(username);
     Console.log(password);
-    request.open('POST','http://kuharan.imad.hasura-app.io/login',+name,true);
+    request.open('POST','http://kuharan.imad.hasura-app.io/login',true);
     request.send(JSON.stringfigy({username: username, password:password}));
     
 };
