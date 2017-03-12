@@ -26,7 +26,7 @@ submit.onclick = function () {
         console.log(username);
         console.log(password);
     }else{
-        console = {
+        console == {
         log: function () {},
         warn: function () {},
         error: function () {}
