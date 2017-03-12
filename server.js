@@ -160,7 +160,7 @@ app.post('/login', function(req, res) {
             if(result.rows.length===0){
                 res.send(400).send('username/password invalid');
             }else{
-                var dbString=result.rows[0];
+                var dbString=result.rows[0].password;
                 res.send('User Successfully Created' + username);
             }
             
