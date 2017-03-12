@@ -1,11 +1,9 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var app = express();
-app.use(morgan('combined'));
 var Pool = require('pg').Pool;
 var crypto=require('crypto');
-
+var bodyParser=require('body-parser');
 var config = {
   host: 'db.imad.hasura-app.io',
   user: 'kuharan',
@@ -13,6 +11,10 @@ var config = {
   database: 'kuharan',
   port:'5432'
 };
+var app = express();
+app.use(morgan('combined'));
+app.use(bodyParser.Json());
+
 
 
 
@@ -129,7 +131,7 @@ app.get('/hash/:input', function (req, res) {
 });
 
 app.post('/create-user/', function(req, res) {
-    
+    //JSON
     var username=req.body.username;
     var password=req.body.password;
     
