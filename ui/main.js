@@ -81,9 +81,6 @@ function loadLoginForm () {
 }
 
 
-
-
-
 function loadArticles () {
         // Check if the user is already logged in
     var request = new XMLHttpRequest();
