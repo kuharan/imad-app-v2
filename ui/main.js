@@ -126,8 +126,8 @@ function loadArticles () {
         }
     };
     
-    request.open('GET', '/get-articles', true);
-    request.send(null);
+    //request.open('GET', '/get-articles', true);
+    //request.send(null);
 }
 
 
