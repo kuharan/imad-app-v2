@@ -164,7 +164,7 @@ function loadLogin () {
     
 }
 
-function logout() {
+/*function logout() {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState === XMLHttpRequest.DONE) {
@@ -182,131 +182,10 @@ function logout() {
     request.open('GET', '/logout',true);
     request.send(null);
     
-}
+}*/
 
-function loadArticles () {
-        // Check if the user is already logged in
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            var articles = document.getElementById('articles-list');
-            var articletitles = document.getElementById('article-titles');
-           // console.log(articletitles);
-            //console.log("articles", articles);
-            if (request.status === 200) {
-                var content = ' ';
-                var titles = ' ';
-                var articleData = JSON.parse(this.responseText);
-                
-                for (var i=0; i< articleData.length; i++) {
-                    content +=`
-                    <header class="entry-header">
-						<h2 class="entry-title">
-							<a href="/articles/${articleData[i].title}" title="${articleData[i].heading}"> ${articleData[i].heading}</a>
-						</h2> 				 
-					
-						<div class="entry-meta">
-							<ul>
-								<li>(${articleData[i].date.split("T")[0]})</li>
-								<span class="meta-sep">&bull;</span>								
-								<!--<li><a href="#" title="" rel="category tag">Ghost</a></li>
-								<span class="meta-sep">&bull;</span>-->
-								<li>${articleData[i].username}</li>
-							</ul>
-						</div>
-					</header>
-						<div class="entry-content" align="justify">
-						<p class="drop-cap">${articleData[i].content.substring(0,300)}</p>
-						<p align="right"><a href="/articles/${articleData[i].title}">Read More...</a></p>
-					</div> 
-                    `;
-                    
-                    titles += `
-                    <li>
-                        <a href="/articles/${articleData[i].title}" title="${articleData[i].heading}"> ${articleData[i].heading}</a>
-                    </li>`;
-                    
-                }
-                if ( articletitles ) {
-                    articletitles.innerHTML = titles;   
-                }
-                 
-                 if ( articles ) {
-                    articles.innerHTML = content; 
-                 }
-            } else {
-                alert(request.err.toString() + request.status.toString());
-                articles.innerHTML = 'Oops! Could not load all articles!';
-            }
-        }
-    };
-    
-    request.open('GET', '/get-articles', true);
-    request.send(null);
-}
 
-function loadStats () {
-        // Check if the user is already logged in
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            var statsTab = document.getElementById('stat-tab');
-            if (request.status === 200) {
-                var stats = JSON.parse(this.responseText);
-                var content = ' ';
-                
-                for (var i=0; i< stats.length; i++) {
-                    content +=`
-                    <li><a href="#">123 <em>Visitors</em></a></li>
-                        <li><a href="#">${stats[i].articlecount} <em>Articles</em></a></li>
-                        <li><a href="#">${stats[i].commentcount} <em>Comments</em></a></li>
-                        <li><a href="#">${stats[i].usercount} <em>Registered Users</em></a></li>
-                    `;
 
-                }
-                
-                 statsTab.innerHTML = content;
-            } else {
-                alert(request.err + request.status);
-                statsTab.innerHTML = 'Oops! Could not load all articles!';
-            }
-        }
-    };
-    
-    request.open('GET', '/get-stats', true);
-    request.send(null);
-}
-
-function footerComments () {
-   
-        // Check if the user is already logged in
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            var footerComments = document.getElementById('footer-comments');
-            if (request.status === 200) {
-                var footcomments = JSON.parse(this.responseText);
-                var content = ' ';
-                
-                for (var i=0; i< footcomments.length && i<3; i++) {
-                    content +=`
-                    <li><a href="/articles/${footcomments[i].title}"><p>${footcomments[i].comment}
-			        <br /><cite>${footcomments[i].username}</cite></p></a></li>
-                    `;
-
-                }
-                
-                 footerComments.innerHTML = content;
-            } else {
-                alert(request.err + request.status);
-                footerComments.innerHTML = 'Oops! Could not load all articles!';
-            }
-        }
-    };
-    
-    request.open('GET', '/get-footercomments', true);
-    request.send(null);
-}
 
 
 
@@ -316,8 +195,4 @@ loadLogin();
 // Now this is something that we could have directly done on the server-side using templating too!
 loadArticles();
 
-//Load site stats 
-loadStats();
 
-//load footer comments
-footerComments();
