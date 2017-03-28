@@ -1,83 +1,431 @@
-<!doctype html>
-<html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body background="https://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-11-full.jpg">
+/*
+// var element = document.getElementById('main-text');
+// 
+// element.innerHTML = 'This is a new text which is changed';
+// 
+// var img = document.getElementById('madi');
+// img.onclick = function () { 
+//     if (img.style.marginLeft === "100px" )
+//     {
+//         img.style.marginLeft = "0";
+//     }
+// else
+//     {
+//         img.style.marginLeft = "100px";
+//     }
+// }
+//  
+// var mLeft = 0;
+// img.ondblclick = function () {
+//     // img.style.marginLeft = "0";
+//     var Interval = setInterval(moveRight, 1000);
+// 
+// 
+//     for ( var i = 0; i > 300; i++) {
+//         console.log (i);
+//         ml = i + "px";
+//         img.style.marginLeft = ml;
+//    }
+// 
+// }
+// function moveRight () {
+//     mLeft = mLeft + 5;
+//     img.style.marginLeft = mLeft + "px";
+// }
+// 
+/*
+ function displayCounter () {
+// var button = document.getElementById('counter');
+// button.onclick = function () {
+    // Get a Response ready for XML
+    var request = new XMLHttpRequest();
+    // get the response in a variable
+    request.onreadystatechange = function () {
+        // Take some action
+        if (request.readyState === XMLHttpRequest.DONE) {
+        }
+        if (request.status === 200) {
+            var count1 = request.responseText;
+            var spanTxt = document.getElementById('count');
+            spanTxt.innerHTML = count1.toString();
+        }
+    };
+    // get the counter from the already created counter file:
+    request.open('GET', '/counter', true);
+    request.send(null);
+    return true;
+}
+*/
+/*
+ function displayComments () {
+// var submitBtn = document.getElementById('btnSubmit');
+// submitBtn.onclick = function () {
+    var nameinput = document.getElementById('txtName');
+    txtname = nameinput.value;
+    var commentinput = document.getElementById('txtComment');
+    txtcomment = commentinput.value;
+    if (txtname === '' ) {
+        return true;
+    }
+    else if(txtcomment === '') {
+        return true;
+    }
+    displayCounter();
+    // Get a Response ready for XML
+    var request = new XMLHttpRequest();
+    // get the response in a variable
+    request.onreadystatechange = function () {
+        // Take some action
+        if (request.readyState === XMLHttpRequest.DONE) {
+        if (request.status === 200) {
+      /*     var returnvalue = request.responseText;
+            var comments = JSON.parse(returnvalue['comment']);
+     */ 
+     /*
+            var comments = JSON.parse(request.responseText);
+            var list = '';
+            for (var i=comments.length-1; i>-1; i--) {
+                list += '<li class="list-group-item">' + comments[i] + '</li>';
+            }
+            var count1 = request.responseText;
+            var ulList = document.getElementById('listNames');
+            ulList.innerHTML = list;
+          }
+         }
+    };
+    // get the counter from the already created counter file:
+    request.open('GET', '/comment?comment=' + txtcomment + '&name=' + txtname, true);
+    request.send(null);
+    return true;
+}
+*/
+
+/**************************************************************************
+*
+* Making login / register user forms and displaying and authenticating 
+* forked from coco98
+*
+**************************************************************************/
+function loadLoginForm () {
+    var loginHtml = `<h3> Login / register </h3>
+                      <form action="#">
+					<input type ="text" id="username" placeholder="Your Username" class="text-search">
+					<input type="password" id="password" placeholder="Your Password" class="text-search">
+                    <!-- <input type="text" value="Search here..." onblur="if(this.value == '') { this.value = 'Search here...'; }" onfocus="if (this.value == 'Search here...') { this.value = ''; }" class="text-search">
+                     <input type="submit" value="" class="submit-search" disabled>-->
+					 <input type="BUTTON" id="login_btn" class="button" value="Login">
+					 <input type="BUTTON" id="register_btn" class="button" value="Register">
+					 
+                  </form>
+                  `;
+
+    document.getElementById('login-area').innerHTML = loginHtml;
     
+    // Submit username/password to login
+    var submit = document.getElementById('login_btn');
+    submit.onclick = function () {
+        // Create a request object
+        var request = new XMLHttpRequest();
         
-    <div align="center" class="fond">
-    <div id="dp" class="p">
-      <div class="p_petit">
-        <div  class="p_img">
-            <img src="https://s16.postimg.org/689qwpksl/cutmypic.png" class="img-medium" height="170" width="170"/>
-        </div>
-        </div>
-    </div>
-    </div>
+        // Capture the response and store it in a variable
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              // Take some action
+              if (request.status === 200) {
+                  submit.value = 'Success!';
+                 // loadLoginforComment();
+              } else if (request.status === 403) {
+                  submit.value = 'Invalid credentials. Try again?';
+                  var exists = document.getElementById("login-area");
+                if ( !exists ) {
+                    document.getElementById('login-area').innerHTML = '';
+                }
+              } else if (request.status === 500) {
+                  alert('Something went wrong on the server' + request.status.toString());
+                  submit.value = 'Login';
+              } else {
+                  alert('Something went wrong on the server' + request.status.toString());
+                  submit.value = 'Login';
+              }
+              loadLogin();
+          }  
+          // Not done yet
+        };
+        
+        // Make the request
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        //console.log(username);
+        //console.log(password);
+        request.open('POST', '/login', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({username: username, password: password}));  
+        submit.value = 'Logging in...';
+        
+    };
     
+    var register = document.getElementById('register_btn');
+    register.onclick = function () {
+        // Create a request object
+        var request = new XMLHttpRequest();
+         var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;     
+        // Capture the response and store it in a variable
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              // Take some action
+              if (request.status === 200) {
+                 // alert('User created successfully');
+                  register.value = 'Registered!';
+                 loginRegisteredUser( username, password );
+                 loadLogin();
+                  
+              } else {
+                 //alert('Could not register the user');
+                  register.value = 'Register';
+              }
+          }
+        };
+        
+        // Make the request
+       
+        //console.log(username);
+        //console.log(password);
+        request.open('POST', '/create-user', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({username: username, password: password}));  
+        register.value = 'Registering...';
+        
     
-    <div class=container>
-        
-        
-        <div class="profile">
-            <h1 class="heading"><u>KUHARAN BHOWMIK</u></h1>
-            <h5 class="heading">MCA | BPPIMT | 2017</h5>
-        </div>
-        
-        <hr/>
-        <div class="extra-info">
-            <table>
-                <tbody class="heading"><tr class="education"><th>Education</th><td><ol>
-                <li><a href="http://bppimt.ac.in/">B.P. Poddar Institute Of Management and Technology</a></li></ol></td></tr>
-                    <tr class="heading"><th>Websites</th>
-                <td><ol><li><a href="http://www.twitter.com/kuharanbhowmik">Twitter Profile</a></li>
-                <li><a href="http://www.facebook.com/kuharan">Facebook Profile</a></li></ol></td></tr>
-                </tbody>
-            </table>
-        </div>
-        <hr/>
-        <h4 class="heading">Movies</h4><br>
-        <a href="http://kuharan.imad.hasura-app.io/articles/article-one">Raees</a><br>
-        <a href="http://kuharan.imad.hasura-app.io/articles/article-two">Dangal</a><br>
-        <a href="http://kuharan.imad.hasura-app.io/articles/article-three">Sultan</a>
-        <hr/>
-        <div class1="projects" class2="heading">
-            <h4 class="title">Projects</h4>
-            <ul>
-                <li class="project"><header><h4 class="item-title">Intrusion Detection System Using Pattern Recognition Techniques (On going) </h4></header>
-                    <p style="font-size:80%" class="description"><i>C#6.0 and .NET 4.6<br></i></p></li>
-                <li class="project"><header><h4 class="item-title">Intrusion Detection System Using Statistical Analysis</h4></header>
-                    <p style="font-size:80%" class="description"><i>Java 8 <br>Oracle XE<br>odbc14</i></p></li>
-                <li class="project"><header><h4 class="item-title">Inventory Management System</h4></header><p style="font-size:80%" class="description"><i>Java 8<br>odbc 14<br>oracle XE</i></p></li>
-                <li class="project"><header><h4 class="item-title">Online Recruitment System</h4></header><p style="font-size:80%" class="description"><i>Java 6 Servlet<br>html<br>javascript<br>css<br></i></p></li>
-            </ul>
-        </div>
-        
-        <hr/>
-    </div>
-    <div id="login_area">
-        
-    </div>
-    <hr/>
-    <H5 style="color:grey;" align=center>Visitors count :</h5>
-    <div align=center><a href='http://www.counter12.com'><img src='http://www.counter12.com/img-9Z1w19Az27y5YD9Z-9.gif' border='0' alt='free counter'></a>
-    <script type='text/javascript' >
-        document.write(''); var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-19761428-6']); _gaq.push(['_setDomainName', '']); _gaq.push(['_setAllowHash', false]); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); var _Hasync= _Hasync|| []; _Hasync.push(['Histats.start', '1,2998001,4,0,0,0,00010000']); _Hasync.push(['Histats.fasi', '1']); _Hasync.push(['Histats.track_hits', '']); (function() { var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true; hs.src = ('http://s10.histats.com/js15_as.js'); (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs); })();
-    </script>
-    </div>
+    };
+}
+
+function loginRegisteredUser ( username, password ){
     
-    
-    <footer>
-          <p align="center" style="font-size:10px;color:grey">Posted by: Kuharan Bhowmik<br>
-          Contact information: <a href="mailto:kuharan.bhowmik@gmail.com">kuharan.bhowmik@gmail.com</a></p>
-    </footer> 
-    <hr>
-    <marquee>Disclaimer: This is only for learning.</marquee>
-    <hr>
-    <script type="text/javascript" src="/ui/main.js"></script>
-    <script type="css" src="/ui/style.css"></script>
+
+        var request = new XMLHttpRequest();
+        var submit = document.getElementById('register_btn');    
+        // Capture the response and store it in a variable
+        request.onreadystatechange = function () {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              // Take some action
+              if (request.status === 200) {
+                  submit.value = 'Logging in...';
+                  loadLoggedInUser(username);
+              } else if (request.status === 403) {
+                  submit.value = 'Invalid credentials. Try again?';
+              } else if (request.status === 500) {
+                  alert('Something went wrong on the server' + request.status.toString());
+                  submit.value = 'Registered!';
+              } else {
+                  alert('Something went wrong on the server' + request.status.toString());
+                  submit.value = 'Registered!';
+              }
+              loadLogin();
+          }  
+          // Not done yet
+        };
         
+        // Make the request
+      //  var username = document.getElementById('username').value;
+    //    var password = document.getElementById('password').value;
+        //console.log(username);
+        //console.log(password);
+        request.open('POST', '/login', true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify({username: username, password: password}));  
+        submit.value = 'Logging in...';
+        
+    }
+    
+
+function loadLoggedInUser (username) {
+    var loginArea = document.getElementById( 'login-area');
+    var currentlocation = window.location.pathname.split('/')[2];
+    loginArea.innerHTML = `<h5> Welcome 
+    <a href="#" title="Change Profile"> ${username}!</a></h5>
+        
+        <a href="#" title="Compose a new Article">Compose an Article</a>
+        <br />
+        <a href="#" title="Edit an Article" >Edit Your Article</a>
+        <br />
+        <a href="#" onclick="logout()">Logout</a>`;
+}
+
+function loadLogin () {
+    //Check if the user is already logged in 
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+               // alert(this.responseText);
+                loadLoggedInUser(this.responseText);
+            }
+            else {
+                loadLoginForm();
+            }
+        }
+    };
+
+    request.open('GET', '/auth/check-login',true);
+    request.send(null);
+    
+}
+
+function logout() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                var exists = document.getElementById("login-area");
+                if ( !exists ) {
+                    document.getElementById('login-area').innerHTML = '';
+                }
+                loadLoginForm();
+            }
+            
+        }
+    };
+
+    request.open('GET', '/logout',true);
+    request.send(null);
+    
+}
+
+function loadArticles () {
+        // Check if the user is already logged in
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            var articles = document.getElementById('articles-list');
+            var articletitles = document.getElementById('article-titles');
+           // console.log(articletitles);
+            //console.log("articles", articles);
+            if (request.status === 200) {
+                var content = ' ';
+                var titles = ' ';
+                var articleData = JSON.parse(this.responseText);
+                
+                for (var i=0; i< articleData.length; i++) {
+                    content +=`
+                    <header class="entry-header">
+						<h2 class="entry-title">
+							<a href="/articles/${articleData[i].title}" title="${articleData[i].heading}"> ${articleData[i].heading}</a>
+						</h2> 				 
+					
+						<div class="entry-meta">
+							<ul>
+								<li>(${articleData[i].date.split("T")[0]})</li>
+								<span class="meta-sep">&bull;</span>								
+								<!--<li><a href="#" title="" rel="category tag">Ghost</a></li>
+								<span class="meta-sep">&bull;</span>-->
+								<li>${articleData[i].username}</li>
+							</ul>
+						</div>
+					</header>
+						<div class="entry-content" align="justify">
+						<p class="drop-cap">${articleData[i].content.substring(0,300)}</p>
+						<p align="right"><a href="/articles/${articleData[i].title}">Read More...</a></p>
+					</div> 
+                    `;
+                    
+                    titles += `
+                    <li>
+                        <a href="/articles/${articleData[i].title}" title="${articleData[i].heading}"> ${articleData[i].heading}</a>
+                    </li>`;
+                    
+                }
+                if ( articletitles ) {
+                    articletitles.innerHTML = titles;   
+                }
+                 
+                 if ( articles ) {
+                    articles.innerHTML = content; 
+                 }
+            } else {
+                alert(request.err.toString() + request.status.toString());
+                articles.innerHTML = 'Oops! Could not load all articles!';
+            }
+        }
+    };
+    
+    request.open('GET', '/get-articles', true);
+    request.send(null);
+}
+
+function loadStats () {
+        // Check if the user is already logged in
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            var statsTab = document.getElementById('stat-tab');
+            if (request.status === 200) {
+                var stats = JSON.parse(this.responseText);
+                var content = ' ';
+                
+                for (var i=0; i< stats.length; i++) {
+                    content +=`
+                    <li><a href="#">123 <em>Visitors</em></a></li>
+                        <li><a href="#">${stats[i].articlecount} <em>Articles</em></a></li>
+                        <li><a href="#">${stats[i].commentcount} <em>Comments</em></a></li>
+                        <li><a href="#">${stats[i].usercount} <em>Registered Users</em></a></li>
+                    `;
+
+                }
+                
+                 statsTab.innerHTML = content;
+            } else {
+                alert(request.err + request.status);
+                statsTab.innerHTML = 'Oops! Could not load all articles!';
+            }
+        }
+    };
+    
+    request.open('GET', '/get-stats', true);
+    request.send(null);
+}
+
+function footerComments () {
    
-    </body>
-</html>
+        // Check if the user is already logged in
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            var footerComments = document.getElementById('footer-comments');
+            if (request.status === 200) {
+                var footcomments = JSON.parse(this.responseText);
+                var content = ' ';
+                
+                for (var i=0; i< footcomments.length && i<3; i++) {
+                    content +=`
+                    <li><a href="/articles/${footcomments[i].title}"><p>${footcomments[i].comment}
+			        <br /><cite>${footcomments[i].username}</cite></p></a></li>
+                    `;
+
+                }
+                
+                 footerComments.innerHTML = content;
+            } else {
+                alert(request.err + request.status);
+                footerComments.innerHTML = 'Oops! Could not load all articles!';
+            }
+        }
+    };
+    
+    request.open('GET', '/get-footercomments', true);
+    request.send(null);
+}
+
+
+
+// The first thing to do is to check if the user is logged in!
+loadLogin();
+
+// Now this is something that we could have directly done on the server-side using templating too!
+loadArticles();
+
+//Load site stats 
+loadStats();
+
+//load footer comments
+footerComments();
