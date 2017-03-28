@@ -94,6 +94,7 @@ function loadLogin () {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                // loadLoggedInUser(this.responseText);
+               loadLoginForm();
             } else {
                 loadLoginForm();
             }
