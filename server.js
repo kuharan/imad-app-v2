@@ -83,7 +83,7 @@ app.use(session({
     }
 
     
- };*/
+ }; */
 
 function createTemplate(data){
     var title=data.title;
